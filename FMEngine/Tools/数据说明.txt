@@ -1,0 +1,7 @@
+upc:升级链数据
+upcs:升级链集合文件
+
+emy:敌人数据文件
+emys:敌人数据集合文件
+emylist:敌人链文件
+emylists:敌人链集合文件

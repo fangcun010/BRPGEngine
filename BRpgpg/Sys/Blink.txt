@@ -1,0 +1,7 @@
+连接成功!
+
+BBK Basic Linker Ver2.0    
+Author: 通宵虫
+Copyright (c)2006 东莞步步高教育电子有限公司
+All rights reserved.
+

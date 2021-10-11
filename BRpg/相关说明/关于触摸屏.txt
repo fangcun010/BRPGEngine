@@ -1,0 +1,11 @@
+目前触摸屏支持是通过waitkey和inkey函数来实现的。
+
+具体做法是：
+	当waitkey/inkey函数返回负数时，表示是触摸笔消息。
+	触摸笔点击的位置，可以将waitkey/inkey函数的返回值传递给
+	GETPENPOSX(param)和GETPENPOSY(param)两个函数来分别获得
+	X和Y。
+
+两者的区别是：waitkey在无按键和触摸笔消息时，处于等待；而inkey将返回0
+
+例子请参考:sample目录下的pen.bas

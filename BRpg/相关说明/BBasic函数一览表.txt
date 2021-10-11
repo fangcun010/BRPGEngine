@@ -1,0 +1,429 @@
+'====================================================
+目前系统定义了：
+	KEY_UP=38
+	KEY_DOWN=40
+	KEY_LEFT=37
+	KEY_RIGHT=39
+	KEY_SPACE=32
+	KEY_ESCAPE=27
+	KEY_ENTER=13
+7个键，用户想用别的键，请在自己的BAS文件中用同样的方法
+定义即可。
+
+
+'====================================================
+'数学函数
+001.获取弧度值的单精度的sin值
+	SIN!(X!)
+	调用格式：
+		a! = SIN!(3.14/6)
+	参见:
+		Samples\math.bas
+
+002.获取弧度值的单精度的cos值
+	COS!(X!)
+	调用格式：
+		a! = COS!(3.14/6)
+	参见:
+		Samples\math.bas
+
+003.获取弧度值的单精度的tan值
+	TAN!(X!)
+	调用格式：
+		a! = TAN!(3.14/6)
+	参见:
+		Samples\math.bas
+
+004.获取指定单精度值的开平方值
+	SQR!(X!)
+	调用格式：
+		a! = TAN!(100.0)
+	参见:
+		Samples\math.bas
+
+005.获取指定单精度值的绝对值
+	ABS!(X!)
+	调用格式：
+		a! = ABS!(-100.0)
+	参见:
+		Samples\math.bas
+
+006.获取指定整数的绝对值
+	ABS(X)
+	调用格式：
+		a = ABS(-100)
+	参见:
+		Samples\math.bas
+
+'====================================================
+'输入输出函数
+007.清空屏幕
+	CLS
+	调用格式：
+		CLS
+	参见:
+		Samples\Print.bas
+
+008.获取输入
+	INPUT
+	调用格式：
+		INPUT a,b$
+	参见:
+		Samples\Print.bas
+
+009.格式化输出
+	PRINT
+	调用格式：
+		PRINT a,b$
+	参见:
+		Samples\Print.bas
+
+010.输出定位
+	LOCATE(LINE,ROW)
+	调用格式：
+		LOCATE(4,10)
+	参见:
+		Samples\Print.bas
+
+x11.象素输出定位
+	PIXLOCATE(X,Y)
+	调用格式：
+		PIXLOCATE(12,15)
+	参见:
+		Samples\Print.bas
+
+'====================================================
+'数据操作
+011.读取数据(和DATA配对使用)
+	READ
+	调用格式：
+		READ a,b$
+	参见:
+		Samples\Read.bas
+
+012.定义数据
+	DATA
+	调用格式：
+		DATA 1,"ggj"
+	参见:
+		Samples\Read.bas
+		
+013.设置数据读取位置
+	RESTORE[标号]
+	调用格式：
+		RESTORE		'或
+		RESTORE LABEL1
+	参见:
+		Samples\Read.bas
+
+'====================================================
+'游戏支持
+
+014.模拟器功能，设定目标机型的屏幕尺寸
+	SETLCD(W,H)
+	调用格式：
+		SETLCD(240,160)
+	参见:
+		Samples\graphic.bas
+
+015.创建一个和屏幕兼容的显示页面
+	CREATEPAGE()
+	调用格式：
+		page1 = CREATEPAGE()
+	参见:
+		Samples\graphic.bas
+
+016.删除指定的页面
+	DELETEPAGE(PAGE)
+	调用格式：
+		DELETEPAGE(page1)
+	参见:
+		Samples\graphic.bas
+
+017.从指定的资源库文件中载入数据
+	LOADRES(FILE$,ID)
+	调用格式：
+		pic1 = LOADRES("box.rlb",1)
+	参见:
+		box\box.bas
+
+018.显示图片到页面(不支持直接显示到屏幕上)
+	SHOWPIC(PAGE,PIC,DX,DY,W,H,X,Y,MODE)
+	调用格式：
+		SHOWPIC(page,pic,sx,sy,16,16,0,0,1)
+	参见:
+		box\box.bas
+	
+019.翻转页面，将指定的页面翻转为可显示页面
+	FLIPPAGE(PAGE)
+	调用格式：
+		FLIPPAGE(page1)
+	参见:
+		Samples\graphic.bas
+
+020.页面对拷
+	BITBLTPAGE(DEST,SRC)
+	调用格式：
+		BITBLTPAGE(page2,page1)
+	参见:
+		Samples\graphic.bas
+
+021.填充页面
+	FILLPAGE(PAGE,X,Y,WID,HGT,COLOR)
+	调用格式：
+		FILLPAGE(page1,0,0,240,160,&HFFFFFF)
+	参见:
+		Samples\graphic.bas
+
+022.画点
+	PIXEL(PAGE,X,Y,COLOR)
+	调用格式：
+		PIXEL(page1,2,3,&HFF0000)
+	参见:
+		Samples\graphic.bas
+
+023.获取点的颜色
+	READPIXEL(PAGE,X,Y)
+	调用格式：
+		color = READPIXEL(page1,2,3)
+	参见:
+		无
+
+024.设定随机产生器的种子
+	RANDOMIZE(SEED)
+	调用格式：
+		seed = GETTICK()
+		RANDOMIZE(seed)
+	参见:
+		Samples\graphic.bas
+
+025.获取随机数
+	RND(RANGE) (范围：[0,RANGE))
+	调用格式：
+		a = RND(100)
+	参见:
+		Samples\graphic.bas
+
+026.获取按键状态(检测指定按键是否按下)
+	KEYPRESS(KEY)
+	调用格式：
+		if KEYPRESS(KEY_SPACE)
+			PRINT "KEY_SPACE be pressed"
+	参见:
+		Samples\keyfun.bas
+
+x27.等待一个按键(中断程序的执行等待)
+	WAITKEY()
+	调用格式：
+		key = WAITKEY()
+	参见：
+		Samples\keyfun.bas
+
+x28.从键盘上读取一个字符(返回该字符的字符串)
+	INKEY$()
+	调用格式：
+		key$ = INKEY$()
+	参见：
+		Samples\keyfun.bas
+
+x29.从键盘上读取一个字符(返回该字符的ASCII)
+	INKEY()
+	调用格式：
+		key = INKEY()
+	参见：
+		Samples\keyfun.bas
+
+027.获取滴答计数
+	GETTICK()
+	调用格式：
+		a = GETTICK()
+	参见:
+		Samples\graphic.bas
+
+028.获取指定地址下内存的值(字节)
+	PEEK(addr)
+	调用示例:
+		value = PEEK(DATAADDR)
+	参见:
+		Samples\peek.bas
+
+029.设置指定的地址为指定的值(语句)
+	POKE value,address
+	调用示例:
+		POKE 1,DATAADDR
+	参见:
+		Samples\peek.bas
+	
+030.打开文件(语句)
+	OPEN
+	调用示例:
+		OPEN "aa.bin" for binary as #1
+	参见:
+		Samples\filefun.bas
+
+031.关闭文件(语句)
+	CLOSE #文件号[,#文件号]......
+	调用示例:
+		CLOSE #1
+	参见:
+		Samples\filefun.bas
+
+032.读取文件(语句)	
+	GET [#]文件号, [指定偏移位置,] 变量
+	调用示例:
+		Get #1,g_Name$
+	参见:
+		Samples\filefun.bas
+
+033.写入文件(语句)
+	PUT [#]文件号, [指定偏移位置,] 变量/常量
+	调用示例:
+		Put #1,g_Score
+	参见:
+		Samples\filefun.bas
+	
+034.判断文件是否结束(!0:结束 0:未结束)
+	EOF(文件号)
+	调用示例:
+		while NOT EOF(1)
+	参见:
+		Samples\filefun.bas
+
+035.获取文件长度
+	LOF(文件号)
+	调用示例:
+		flen = LOF(1)
+	参见:
+		Samples\filefun.bas
+
+036.获取文件位置
+	LOC(文件号)
+	调用示例:
+		off = LOC(1)
+	参见:
+		Samples\filefun.bas
+
+x37.设置文件指针位置
+	SEEK [#]文件号, 指定的文件指针位置
+	调用示例:
+		Seek #1,4
+	参见：
+		Samples\filefun.bas
+
+037.定义符号常量
+	CONST 符号常量 = 被代表的值
+	调用示例:
+		Const DATAADDR = &Ha41828
+	参见:
+		Samples\peek.bas
+
+'====================================================
+'字符串函数
+
+038.取字符串长度
+	LEN(X$)
+	调用格式：
+	slen = LEN("I LOVE BB.")	
+	参见:
+		Samples\strfun.bas
+
+039.将数值转换成字符串
+	STR$(VALUE)
+	调用格式：
+		d$ = STR$(2007)
+	参见:
+		Samples\strfun.bas
+
+040.将字符串转换成数值
+	VAL(X$)
+	调用格式：
+		value = VAL("2007")
+	参见:
+		Samples\strfun.bas
+
+041.把ASCII值转换成字符串
+	CHR$(X)
+	调用格式：
+		A$ = CHR$(97)
+	参见:
+		Samples\strfun.bas
+
+042.把字符串转换成ASCII值
+	ASC(X$)
+	调用格式：
+		v = ASC("A")
+	参见:
+		Samples\strfun.bas
+
+043.左取子字符串
+	LEFT$(X$,N)
+	调用格式：
+		d$ = LEFT$("2007 = 2008 - 1",5)
+	参见:
+		Samples\strfun.bas
+
+044.右取子字符串
+	RIGHT$(X$,N)
+	调用格式：
+		d$ = RIGHT$("2007 = 2008 - 1",3)
+	参见:
+		Samples\strfun.bas
+
+045.中间取字符串
+	MID$(X$,S,N)
+	调用格式：
+		d$ = MID$("2007 = 2008 - 1",5,10)
+	参见:
+		Samples\strfun.bas
+
+046.查找字符串S$在B$中的位置
+	INSTR(N,S$,B$)
+	调用格式：
+		pos = INSTR(0,"=","2007 = 2008 - 1")
+	参见:
+		Samples\strfun.bas
+
+'====================================================
+'画图函数
+047.设置画笔
+	SETPEN(PAGE,STYLE,WID,COLOR)
+	调用格式：
+		SETPEN(PAGE,STYLE,WID,COLOR)
+	参见:
+		Samples\draw.bas
+
+048.设置画刷
+	SETBRUSH(PAGE,STYLE)
+	调用格式：
+		SETBRUSH(PAGE,STYLE)
+	参见:
+		Samples\draw.bas
+
+049.设置画线的起始点
+	MOVETO(PAGE,X,Y)
+	调用格式：
+		MOVETO(PAGE,X,Y)
+	参见:
+		Samples\draw.bas
+
+050.从起始点画线到目标点
+	LINETO(PAGE,X,Y)
+	调用格式：
+		LINETO(PAGE,X,Y)
+	参见:
+		Samples\draw.bas
+
+051.画矩形
+	RECTANGLE(PAGE,LEFT,TOP,RIGHT,BOTTOM)
+	调用格式：
+		RECTANGLE(PAGE,LEFT,TOP,RIGHT,BOTTOM)
+	参见:
+		Samples\draw.bas
+
+052.画圆
+	CIRCLE(PAGE,CX,CY,CR)
+	调用格式：
+		CIRCLE(PAGE,CX,CY,CR)
+	参见:
+		Samples\draw.bas
+

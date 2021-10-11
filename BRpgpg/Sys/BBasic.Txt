@@ -1,0 +1,6 @@
+编译成功
+BBK Basic Compiler Ver1.9    
+Author: 通宵虫
+Copyright (c)2006 东莞步步高教育电子有限公司
+All rights reserved.
+
